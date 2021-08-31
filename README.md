@@ -1,3 +1,91 @@
+This repo contains the code for evaluating SuperGlue on image reranking. 
+To use the code, please the original [README](#research--magic-leap-cvpr-2020-oral) first.
+
+For the experiments on [Revisited Oxford/Paris](http://cmp.felk.cvut.cz/revisitop/), we use the pretrained [outdoor](models/weights/superglue_outdoor.pth) model.
+For the experiments on [Stanford Online Products](https://cvgl.stanford.edu/projects/lifted_struct/), we use the pretrained [indoor](models/weights/superglue_indoor.pth) model.
+
+It requires some intermediate files (e.g. knn files) generated in the [RRT_GLD](https://github.com/fwtan/RRT_ICCV2021/tree/main/RRT_GLD) and [RRT_SOP](https://github.com/fwtan/RRT_ICCV2021/tree/main/RRT_SOP) experiments.
+
+Next, we call the directory of [RRT_GLD](https://github.com/fwtan/RRT_ICCV2021/tree/main/RRT_GLD) as `$(RRT_GLD)`, [RRT_SOP](https://github.com/fwtan/RRT_ICCV2021/tree/main/RRT_SOP) as `$(RRT_SOP)`.
+
+## Experiments on Revisited Oxford/Paris
+
+<table><tbody>
+<!-- START TABLE -->
+<!-- TABLE HEADER -->
+<th valign="bottom">Backbone <br/>for global retrieval</th>
+<th valign="bottom">Desc. version <br/>ffor global retrieval</th>
+  <th valign="bottom"># local descriptors </th>
+<th valign="bottom">mAP<br/>medium / hard</th>
+<th valign="bottom">Evaluation</th>
+<!-- TABLE BODY -->
+<tr>
+      <td align="center">ResNet-50</td>
+      <td align="center">v1</td>
+      <td align="center">500</td>
+      <td align="center">ROxf: 72.6 / 49.7<br/>RPar: 81.9 / 62.4</td>
+      <td align="center">ROxf: <a href=scripts/eval_r50_gldv1_roxf_500.sh>script</a><br/>RPar: <a href=scripts/eval_r50_gldv1_rpar_500.sh>script</a></td>
+</tr>
+<tr>
+      <td align="center">ResNet-50</td>
+      <td align="center">v1</td>
+      <td align="center">1024</td>
+      <td align="center">ROxf: 74.4 / 55.2<br/>RPar: 82.3 / 64.6</td>
+      <td align="center">ROxf: <a href=scripts/eval_r50_gldv1_roxf_1024.sh>script</a><br/>RPar: <a href=scripts/eval_r50_gldv1_rpar_1024.sh>script</a></td>
+</tr>
+<tr>
+      <td align="center">ResNet-50</td>
+      <td align="center">v2-clean</td>
+      <td align="center">500</td>
+      <td align="center">ROxf: 76.2 / 54.6<br/>RPar: 85.9 / 68.2</td>
+      <td align="center">ROxf: <a href=scripts/eval_r50_gldv2_roxf_500.sh>script</a><br/>RPar: <a href=scripts/eval_r50_gldv2_rpar_500.sh>script</a></td>
+</tr>
+<tr>
+      <td align="center">ResNet-50</td>
+      <td align="center">v2-clean</td>
+      <td align="center">1024</td>
+      <td align="center">ROxf: 78.3 / 60.0<br/>RPar: 86.2 / 70.4</td>
+      <td align="center">ROxf: <a href=scripts/eval_r50_gldv2_roxf_1024.sh>script</a><br/>RPar: <a href=scripts/eval_r50_gldv2_rpar_1024.sh>script</a></td>
+</tr>
+<tr>
+      <td align="center">ResNet-101</td>
+      <td align="center">v1</td>
+      <td align="center">500</td>
+      <td align="center">ROxf: 74.6 / 51.7<br/>RPar: 82.5 / 62.5</td>
+      <td align="center">ROxf: <a href=scripts/eval_r101_gldv1_roxf_500.sh>script</a><br/>RPar: <a href=scripts/eval_r101_gldv1_rpar_500.sh>script</a></td>
+</tr>
+<tr>
+      <td align="center">ResNet-101</td>
+      <td align="center">v1</td>
+      <td align="center">1024</td>
+      <td align="center">ROxf: 76.9 / 57.2<br/>RPar: 82.9 / 64.7</td>
+      <td align="center">ROxf: <a href=scripts/eval_r101_gldv1_roxf_1024.sh>script</a><br/>RPar: <a href=scripts/eval_r101_gldv1_rpar_1024.sh>script</a></td>
+</tr>
+<tr>
+      <td align="center">ResNet-101</td>
+      <td align="center">v2-clean</td>
+      <td align="center">500</td>
+      <td align="center">ROxf: 77.1 / 55.5<br/>RPar: 86.8 / 69.3</td>
+      <td align="center">ROxf: <a href=scripts/eval_r101_gldv2_roxf_500.sh>script</a><br/>RPar: <a href=scripts/eval_r101_gldv2_rpar_500.sh>script</a></td>
+</tr>
+<tr>
+      <td align="center">ResNet-101</td>
+      <td align="center">v2-clean</td>
+      <td align="center">1024</td>
+      <td align="center">ROxf: 79.7 / 62.1<br/>RPar: 87.1 / 71.5</td>
+      <td align="center">ROxf: <a href=scripts/eval_r101_gldv2_roxf_1024.sh>script</a><br/>RPar: <a href=scripts/eval_r101_gldv2_rpar_1024.sh>script</a></td>
+</tr>
+</tbody></table>
+
+Once you set `$(RRT_GLD)` properly, run:
+
+```
+python match_revisited.py --data_dir $(RRT_GLD)/data 
+    --dataset [oxford5k|paris6k] --desc [r50|r101]_[gldv1|gldv2] \
+    --max_keypoints [500|1024]
+```
+
+***
 <img src="assets/magicleap.png" width="240">
 
 ### Research @ Magic Leap (CVPR 2020, Oral)
