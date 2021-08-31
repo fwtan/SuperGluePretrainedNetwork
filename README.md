@@ -77,7 +77,7 @@ Next, we call the directory of [RRT_GLD](https://github.com/fwtan/RRT_ICCV2021/t
 </tr>
 </tbody></table>
 
-Once you set `$(RRT_GLD)` properly, run:
+Once `$(RRT_GLD)` is set properly:
 
 ```
 python match_revisited.py --data_dir $(RRT_GLD)/data 
