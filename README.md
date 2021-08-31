@@ -85,6 +85,50 @@ python match_revisited.py --data_dir $(RRT_GLD)/data
     --max_keypoints [500|1024]
 ```
 
+Please check the specific command for each experiment shown in the [table](##experiments-on-revisited-oxfordparis) above.
+
+## Experiments on Stanford Online Products
+```diff
+@@ Please note that running this experiment takes days as over 60k x 100 pairs of images are to be matched. @@
+@@ The original code was not parallelized for this task. @@
+```
+
+<table><tbody>
+<!-- START TABLE -->
+<!-- TABLE HEADER -->
+<th valign="bottom"># local descriptors </th>
+<th valign="bottom">R@1</th>
+<th valign="bottom">R@10</th>
+<th valign="bottom">R@100</th>
+<th valign="bottom">Evaluation</th>
+<!-- TABLE BODY -->
+<tr>
+  <td align="center">500</td> 
+  <td align="center">45.5</td>
+  <td align="center">54.6</td>
+  <td align="center">60.5</td>
+  <td align="center"><a href=scripts/eval_sop_500.sh>script</a></td>
+</tr>
+<tr>
+  <td align="center">1024</td>
+  <td align="center">46.3</td>
+  <td align="center">54.9</td>
+  <td align="center">60.5</td>
+  <td align="center"><a href=scripts/eval_sop_1024.sh>script</a></td>
+</tr>
+</tbody></table>
+
+Once `$(RRT_SOP)` is set properly:
+
+```
+python match_sop.py --data_dir $(RRT_SOP)/data \
+    --nn_file $(RRT_SOP)/rrt_sop_caches/rrt_superpoint_sop_nn_inds_test.pkl \
+    --max_keypoints [500|1024]
+    --keypoint_threshold [0.005|0.001]
+```
+
+Please check the specific command for each experiment shown in the [table](##experiments-on-stanford-online-products) above.
+
 ***
 <img src="assets/magicleap.png" width="240">
 
