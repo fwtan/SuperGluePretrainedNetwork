@@ -89,7 +89,8 @@ Please check the specific command for each experiment shown in the [table](##exp
 
 ## Experiments on Stanford Online Products
 ```diff
-@@ Please note that running this experiment takes days as over 60k x 100 pairs of images are to be matched. @@
+@@ Please note that running this experiment takes days, @@
+@@ as over 60k x 100 pairs of images are to be matched. @@
 @@ The original code was not parallelized for this task. @@
 ```
 
