@@ -4,9 +4,9 @@ To use the code, please the original [README](#research--magic-leap-cvpr-2020-or
 For the experiments on [Revisited Oxford/Paris](http://cmp.felk.cvut.cz/revisitop/), we use the pretrained [outdoor](models/weights/superglue_outdoor.pth) model.
 For the experiments on [Stanford Online Products](https://cvgl.stanford.edu/projects/lifted_struct/), we use the pretrained [indoor](models/weights/superglue_indoor.pth) model.
 
-It requires some intermediate files (e.g. knn files) generated in the [RRT_GLD](https://github.com/fwtan/RRT_ICCV2021/tree/main/RRT_GLD) and [RRT_SOP](https://github.com/fwtan/RRT_ICCV2021/tree/main/RRT_SOP) experiments.
+It requires some intermediate files (e.g. knn files) generated in the [RRT_GLD](https://github.com/uvavision/RerankingTransformer/tree/main/RRT_GLD) and [RRT_SOP](https://github.com/uvavision/RerankingTransformer/tree/main/RRT_SOP) experiments.
 
-Next, we call the directory of [RRT_GLD](https://github.com/fwtan/RRT_ICCV2021/tree/main/RRT_GLD) as `$(RRT_GLD)`, [RRT_SOP](https://github.com/fwtan/RRT_ICCV2021/tree/main/RRT_SOP) as `$(RRT_SOP)`.
+Next, we call the directory of [RRT_GLD](https://github.com/uvavision/RerankingTransformer/tree/main/RRT_GLD) as `$(RRT_GLD)`, [RRT_SOP](https://github.com/uvavision/RerankingTransformer/tree/main/RRT_SOP) as `$(RRT_SOP)`.
 
 ## Experiments on Revisited Oxford/Paris
 
