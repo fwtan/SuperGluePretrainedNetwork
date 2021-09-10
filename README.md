@@ -1,5 +1,5 @@
 This repo contains the code for evaluating SuperGlue on image reranking. 
-To use the code, please the original [README](#research--magic-leap-cvpr-2020-oral) first.
+To use the code, please read the original [README](#research--magic-leap-cvpr-2020-oral) first.
 
 For the experiments on [Revisited Oxford/Paris](http://cmp.felk.cvut.cz/revisitop/), we use the pretrained [outdoor](models/weights/superglue_outdoor.pth) model.
 For the experiments on [Stanford Online Products](https://cvgl.stanford.edu/projects/lifted_struct/), we use the pretrained [indoor](models/weights/superglue_indoor.pth) model.
